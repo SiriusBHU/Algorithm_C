@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "include/src/list_0160_intersection_two_lists"
+#include "include/src/list_0160_intersection_two_lists.h"
 
 
 int main() 

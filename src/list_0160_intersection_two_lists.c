@@ -41,10 +41,10 @@ struct ListNode *getIntersectionNode(struct ListNode *headA, struct ListNode *he
         while (diff--) pB = pB->next;
     }
 
-    while (pA->next && pB->next) {
+    while (pA && pB) {
         if ((uintptr_t)pA == (uintptr_t)pB) return pA;
         else {
-            pA ++; pB ++;
+            pA = pA->next; pB = pB->next;
         }
     }
     return NULL;
@@ -61,6 +61,6 @@ void test_0160()
     headA.next = &A1; A1.next = &A2; A2.next = &A3; A3.next = &A4; A4.next = &A5; A5.next = NULL;  
     headB.next = &B1; B1.next = &B2; B2.next = &B3; B3.next = &B4; B4.next = &A2;
 
-    struct ListNode *p = getIntersectionNode(&headA, &headB);
+    struct ListNode *p = getIntersectionNode(&A5, &A5);
     printf("%d\n", p->val);    
 }

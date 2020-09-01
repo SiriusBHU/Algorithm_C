@@ -11,7 +11,7 @@
             "label": "cmake config build files",
             "command": "C:\\CMake\\bin\\cmake.exe",
             "args": [
-                "--no-warn-unused-cli",                 // Not searching for unused variables given on the command line.
+                "--no-warn-unused-cli",
                 "-DCMAKE_EXPORT_COMPILE_COMMANDS:BOOL=TRUE",
                 "-DCMAKE_BUILD_TYPE:STRING=Debug",
                 "-DCMAKE_C_COMPILER:FILEPATH=C:\\mingw-w64\\x86_64-8.1.0-posix-seh-rt_v6-rev0\\mingw64\\bin\\gcc.exe",
@@ -20,7 +20,9 @@
                 "-G",
                 "Ninja"
             ],
-
+            "problemMatcher": [
+                "$gcc"
+            ]
         },
         {
             "type": "shell",
@@ -31,10 +33,15 @@
             },
             "command": "C:\\CMake\\bin\\cmake.exe",
             "args": [
-                "--build", "${workspaceRoot}/build",    // bulid path
-                "--config", "Debug",                    // option: config
-                "--target", "all",                      // option: target
-                "--", "-j", "10"                        // build tool option: -j 10
+                "--build",
+                "${workspaceRoot}/build",
+                "--config",
+                "Debug",
+                "--target",
+                "all",
+                "--",
+                "-j",
+                "10"
             ]
         }
     ]

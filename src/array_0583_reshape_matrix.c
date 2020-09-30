@@ -20,8 +20,10 @@ int** matrixReshape(
         printf("dims of %d can not be reshaped as (%d, %d)", 
                numsSize * (*numsColSize), r, c);
         *returnSize = numsSize;
-        *returnColumnSizes = (int *)malloc(sizeof(int));
-        **returnColumnSizes = *numsColSize;
+        *returnColumnSizes = (int *)malloc(numsSize * sizeof(int));
+        int i; 
+        for (i = 0; i < numsSize; i++)
+            (*returnColumnSizes)[i] = *numsColSize;
         return nums;
     }
 
@@ -36,10 +38,19 @@ int** matrixReshape(
 
     // assign pointer
     int **new_nums = (int **)malloc(r * sizeof(int *));
-    for (i = 0; i < r; i ++) new_nums[i] = &arr[i * r];
+    for (i = 0; i < r; i ++) 
+        new_nums[i] = &arr[i * c];
+
     *returnSize = r;
-    *returnColumnSizes = (int *)malloc(sizeof(int));
-    **returnColumnSizes = c;
+    *returnColumnSizes = (int *)malloc(r * sizeof(int));
+    for (i = 0; i < r; i ++) 
+        (*returnColumnSizes)[i] = c;
 
     return new_nums;
+}
+
+void test_0583()
+{
+    int a[2][2] = 
+
 }
